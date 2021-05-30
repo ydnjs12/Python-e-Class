@@ -1,18 +1,19 @@
-#DNA 염기서열의 순서 바꾸기 1.1
-#딕셔너리 이외의 문자가 포함된 경우 오류 발생이 아닌 ?문자 출력
+#DNA 염기서열의 순서 바꾸기 1.2
+#rev()에서 join과 reversed 함수 사용X, while문으로 변환
 
 def comp(DNAst) :
     dic = {'A':'T', 'T':'A', 'G':'C', 'C':'G'}
     seq_comp=""
     for i in DNAst :
-        if i in dic :
-            seq_comp = seq_comp + dic[i]
-        else :
-            seq_comp = seq_comp + '?'
+        seq_comp = seq_comp + dic[i]
     return seq_comp
 
 def rev(DNAst) :
-    seq_rev = "".join(reversed(DNAst))
+    seq_rev = ""
+    n = len(DNAst) - 1
+    while n >= 0  :
+        seq_rev = seq_rev + DNAst[n]
+        n = n-1 
     return seq_rev
 
 def rev_comp(DNAst) :
